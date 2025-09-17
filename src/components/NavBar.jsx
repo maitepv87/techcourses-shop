@@ -1,8 +1,12 @@
+import { useSelector } from "react-redux";
+
 export const NavBar = () => {
+  const { totalQuantity } = useSelector((state) => state.shoppingCart);
+
   return (
     <nav>
-      <h1>TechCourses Shop</h1>
-      <div>Cart (3)</div>
+      <h2>TechCourses Shop</h2>
+      <div>Cart ({totalQuantity})</div>
     </nav>
   );
 };

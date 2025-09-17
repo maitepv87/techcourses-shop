@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { CourseCard } from "./CourseCard";
 
 export const CourseList = () => {
   const { courses, status, error } = useSelector(
@@ -9,10 +10,12 @@ export const CourseList = () => {
   if (status === "failed") return <p>Error: {error}</p>;
 
   return (
-    <div>
-      {courses.map((course) => (
-        <div key={course.id}>{course.title}</div>
-      ))}
-    </div>
+    <section aria-label="Available Courses">
+      {courses.length === 0 ? (
+        <p>No courses available at the moment.</p>
+      ) : (
+        courses.map((course) => <CourseCard key={course.id} {...course} />)
+      )}
+    </section>
   );
 };
