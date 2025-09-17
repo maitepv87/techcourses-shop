@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchAllCourses, fetchById } from "../../api/coursesAPI";
+import { getAllCourses, getCourseById } from "../../api/coursesAPI";
 
-//
+// Fetches all available courses from local JSON
 export const fetchCourses = createAsyncThunk(
-  "courses/fetchCourses",
+  "courseCatalog/fetchCourses",
   async (_, thunkAPI) => {
     try {
-      const data = await fetchAllCourses();
+      const data = await getAllCourses();
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -14,12 +14,12 @@ export const fetchCourses = createAsyncThunk(
   }
 );
 
-//
+// Fetches a single course by ID
 export const fetchCourseById = createAsyncThunk(
-  "courses/fetchCourseById",
+  "courseCatalog/fetchCourseById",
   async (courseId, thunkAPI) => {
     try {
-      const data = await fetchById(courseId);
+      const data = await getCourseById(courseId);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

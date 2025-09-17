@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchCourses } from "../thunks/coursesThunks";
 
 const initialState = {
-  items: [],
+  courses: [],
   status: "idle",
   error: null,
 };
 
-export const coursesSlice = createSlice({
-  name: "courses",
+export const courseCatalogSlice = createSlice({
+  name: "courseCatalog",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -18,7 +18,7 @@ export const coursesSlice = createSlice({
       })
       .addCase(fetchCourses.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.items = action.payload;
+        state.courses = action.payload;
       })
       .addCase(fetchCourses.rejected, (state, action) => {
         state.status = "failed";
@@ -28,6 +28,6 @@ export const coursesSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {} = coursesSlice.actions;
+export const {} = courseCatalogSlice.actions;
 
-export default coursesSlice.reducer;
+export default courseCatalogSlice.reducer;
