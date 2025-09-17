@@ -1,0 +1,69 @@
+[
+  {
+    "id": "react-101",
+    "title": "React for Humans: Fundamentals with Emotional Clarity",
+    "provider": "TechClarity Academy",
+    "level": "Beginner",
+    "duration": "12h",
+    "price": 49,
+    "tags": ["React", "Frontend"],
+    "description": "Learn React from scratch with examples that teach, not confuse. Perfect for building accessible, understandable components.",
+    "benefits": [
+      "Certificate",
+      "Accessible Components",
+      "Emotionally Clear Onboarding"
+    ]
+  },
+  {
+    "id": "typescript-essentials",
+    "title": "TypeScript Without Fear: Strong Typing for Frontend Devs",
+    "provider": "ModuLearn",
+    "level": "Intermediate",
+    "duration": "8h",
+    "price": 59,
+    "tags": ["TypeScript", "Frontend"],
+    "description": "Master TypeScript with practical examples that help you write modular, scalable, and defensible code.",
+    "benefits": ["Final Project", "Advanced Typing", "Interview Preparation"]
+  },
+  {
+    "id": "cloud-fundamentals",
+    "title": "Cloud Fundamentals with Azure: Your First Step Toward AI",
+    "provider": "SkillStack Academy",
+    "level": "Beginner",
+    "duration": "10h",
+    "price": 39,
+    "tags": ["Azure", "Cloud", "AI"],
+    "description": "Explore key cloud concepts using Azure. Ideal for frontend developers looking to integrate AI and scale their projects.",
+    "benefits": ["Certificate", "AI Integration", "Certification Foundation"]
+  },
+  {
+    "id": "accessible-ui",
+    "title": "Accessible UI Design: Components That Respect and Teach",
+    "provider": "Clarity Academy",
+    "level": "Advanced",
+    "duration": "6h",
+    "price": 69,
+    "tags": ["Accessibility", "UI/UX", "ARIA"],
+    "description": "Build interfaces that not only work but honor user diversity. Includes ARIA practices and emotionally intelligent validation.",
+    "benefits": [
+      "Accessibility Audit",
+      "ARIA Components",
+      "Emotional Documentation"
+    ]
+  },
+  {
+    "id": "interview-ready-react",
+    "title": "Advanced React for Interviews: Patterns You Can Defend",
+    "provider": "DevMarket",
+    "level": "Advanced",
+    "duration": "15h",
+    "price": 79,
+    "tags": ["React", "State Management", "Interview Prep"],
+    "description": "Practice context/reducer, Redux Toolkit, and separation of concerns. Each module includes interview-style questions and technical defenses.",
+    "benefits": [
+      "Interview Questions",
+      "Redux Toolkit",
+      "Modular Documentation"
+    ]
+  }
+]
