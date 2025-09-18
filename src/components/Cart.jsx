@@ -6,7 +6,7 @@ export const Cart = () => {
     (state) => state.shoppingCart
   );
 
-  console.log(cartItems);
+  console.log("cartItems", cartItems);
 
   return (
     <aside className="cart-panel">
@@ -18,7 +18,12 @@ export const Cart = () => {
           {cartItems.map((item) => (
             <CartItem key={item.id} {...item} />
           ))}
-          <p>Subtotal: ${subTotal.toFixed(2)}</p>
+          <p className="cart-subtotal">
+            <strong>Subtotal:</strong> ${subTotal.toFixed(2)}
+          </p>
+          <button className="checkout-btn" onClick={() => alert("Checkout")}>
+            Checkout
+          </button>
         </>
       )}
     </aside>

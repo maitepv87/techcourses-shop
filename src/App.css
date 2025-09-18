@@ -1,4 +1,4 @@
-/* Layout base */
+/* ===== Layout base ===== */
 body {
   margin: 0;
   padding: 0;
@@ -9,14 +9,12 @@ body {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-/* Contenedor principal */
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Espaciado general */
 main {
   flex: 1;
   padding: 2rem;
@@ -24,15 +22,34 @@ main {
   margin: 0 auto;
 }
 
-/* Encabezado de sección */
 main h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
+/* ===== NavBar ===== */
+nav {
+  background-color: #0078d4;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-/* Grid responsivo para cursos */
+nav h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav div {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ===== Cursos (Home) ===== */
 section[aria-label="Available Courses"] {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -40,7 +57,6 @@ section[aria-label="Available Courses"] {
   padding: 2rem 0;
 }
 
-/* Tarjeta de curso */
 .course-card {
   background-color: #ffffff;
   border-radius: 8px;
@@ -56,7 +72,6 @@ section[aria-label="Available Courses"] {
   transform: translateY(-4px);
 }
 
-/* Encabezado del curso */
 .course-card header h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
@@ -67,7 +82,6 @@ section[aria-label="Available Courses"] {
   color: #666;
 }
 
-/* Meta info */
 .course-meta {
   display: flex;
   justify-content: space-between;
@@ -75,20 +89,17 @@ section[aria-label="Available Courses"] {
   margin: 1rem 0;
 }
 
-/* Descripción */
 .description {
   font-size: 0.95rem;
   margin-bottom: 1rem;
 }
 
-/* Lista de beneficios */
 .benefits {
   list-style: disc;
   padding-left: 1.2rem;
   margin-bottom: 1rem;
 }
 
-/* Botón */
 .course-card button {
   align-self: flex-start;
   padding: 0.5rem 1rem;
@@ -103,20 +114,176 @@ section[aria-label="Available Courses"] {
   background-color: #005fa3;
 }
 
-nav {
-  background-color: #0078d4;
-  color: white;
-  padding: 1rem 2rem;
+/* ===== Modal del carrito ===== */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.cart-modal {
+  position: fixed;
+  top: 4rem;
+  right: 2rem;
+  max-width: 400px;
+  max-height: 80vh;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.cart-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #f7f7f7;
 }
 
-nav h2 {
+.cart-header h3 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #111;
 }
 
+.cart-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* ===== Panel del carrito ===== */
+.cart-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: #222;
+}
+
+.cart-panel h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+  color: #111;
+}
+
+.cart-subtotal {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #111;
+  border-top: 1px solid #ddd;
+  padding-top: 0.5rem;
+}
+
+/* ===== Card de item en carrito ===== */
+.cart-card {
+  background: #fafafa;
+  color: #222;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e0e0e0;
+}
+
+.cart-card header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #111;
+}
+
+.cart-card .provider {
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.cart-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 0.9rem;
+  gap: 0.25rem;
+  margin: 0.5rem 0;
+  color: #222;
+}
+
+/* ===== Controles de cantidad y remove ===== */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Botones + y - */
+.quantity-controls button:nth-child(1),
+.quantity-controls button:nth-child(3) {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.quantity-controls button:nth-child(1):hover,
+.quantity-controls button:nth-child(3):hover {
+  background-color: #005fa3;
+}
+
+/* Número de cantidad */
+.quantity-controls span {
+  min-width: 24px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Botón Remove */
+.quantity-controls button:last-child {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.quantity-controls button:last-child:hover {
+  background-color: #b02a37;
+}
+
+/* ===== Botón Checkout ===== */
+.checkout-btn {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.checkout-btn:hover {
+  background-color: #218838;
+}
+
+/* ===== Footer ===== */
 footer {
   background-color: #f0f0f0;
   padding: 1rem 2rem;
@@ -125,6 +292,7 @@ footer {
   color: #555;
 }
 
+/* ===== Notificaciones ===== */
 .notification {
   position: fixed;
   top: 1rem;
@@ -163,46 +331,4 @@ footer {
   color: inherit;
   font-size: 1.2rem;
   cursor: pointer;
-}
-
-.cart-modal {
-  position: fixed;
-  top: 4rem;
-  right: 2rem;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  max-width: 400px;
-  background: rgba(255, 255, 255, 0.95);
-}
-
-.cart-modal::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: -1;
-}
-
-.cart-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-}
-
-.cart-item .item-info {
-  flex-grow: 1;
 }

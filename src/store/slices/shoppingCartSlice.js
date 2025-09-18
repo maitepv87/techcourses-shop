@@ -46,10 +46,27 @@ export const shoppingCartSlice = createSlice({
         state.total = state.subTotal;
       }
     },
+    increaseQuantity: (state, action) => {
+      const item = state.cartItems.find((i) => i.id === action.payload);
+      if (item) {
+        item.quantity += 1;
+        state.totalQuantity += 1;
+        state.subTotal += item.price;
+      }
+    },
+    decreaseQuantity: (state, action) => {
+      const item = state.cartItems.find((i) => i.id === action.payload);
+      if (item && item.quantity > 1) {
+        item.quantity -= 1;
+        state.totalQuantity -= 1;
+        state.subTotal -= item.price;
+      }
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart, removeFromCart } = shoppingCartSlice.actions;
+export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } =
+  shoppingCartSlice.actions;
 
 export default shoppingCartSlice.reducer;

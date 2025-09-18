@@ -1,26 +1,47 @@
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../store/slices/shoppingCartSlice";
+import {
+  removeFromCart,
+  decreaseQuantity,
+  increaseQuantity,
+} from "../store/slices/shoppingCartSlice";
 
-export const CartItem = ({ id, title, price, quantity }) => {
+export const CartItem = ({ id, title, level, price, quantity }) => {
   const dispatch = useDispatch();
 
-  const handleRemove = () => {
-    dispatch(removeFromCart(id));
-  };
-
   return (
-    <div className="cart-item" aria-label={`Cart item: ${title}`}>
-      <div className="item-info">
+    <div className="cart-card">
+      <header>
         <h4>{title}</h4>
+      </header>
+
+      <div className="cart-meta">
         <p>
-          ${price} × {quantity} ={" "}
-          <strong>${(price * quantity).toFixed(2)}</strong>
+          <strong>Level:</strong> {level}
+        </p>
+        <p>
+          <strong>Price:</strong> ${price}
+        </p>
+        <p>
+          <strong>Qty:</strong> {quantity}
+        </p>
+        <p>
+          <strong>Total:</strong> ${(price * quantity).toFixed(2)}
         </p>
       </div>
 
-      <button type="button" onClick={handleRemove}>
-        Remove
-      </button>
+      <div className="quantity-controls">
+        <button type="button" onClick={() => dispatch(decreaseQuantity(id))}>
+          -
+        </button>
+        <span>{quantity}</span>
+        <button type="button" onClick={() => dispatch(increaseQuantity(id))}>
+          +
+        </button>
+
+        <button type="button" onClick={() => dispatch(removeFromCart(id))}>
+          Remove
+        </button>
+      </div>
     </div>
   );
 };
