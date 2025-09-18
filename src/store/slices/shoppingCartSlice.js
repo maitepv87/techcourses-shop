@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: [], //  Courses added to the cart [{ id, title, price, quantity }]
+  cartItems: [], //  Courses added to the cart [{ id, title, price, quantity }]
   totalQuantity: 0, // Total number of units (not unique courses)
   subTotal: 0, // Sum of item prices multiplied by quantity
   total: 0, // Final price
@@ -15,22 +15,41 @@ export const shoppingCartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const course = action.payload;
-      const existingItem = state.items.find((item) => item.id === course.id);
+
+      const existingItem = state.cartItems.find(
+        (item) => item.id === course.id
+      );
 
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        state.items.push({ ...course, quantity: 1 });
+        state.cartItems.push({ ...course, quantity: 1 });
       }
 
       state.totalQuantity += 1;
       state.subTotal += course.price;
       state.total = state.subTotal;
     },
+    removeFromCart: (state, action) => {
+      const courseID = action.payload;
+      const existingItemIndex = state.cartItems.findIndex(
+        (item) => item.id === courseID
+      );
+
+      if (existingItemIndex !== -1) {
+        const item = state.cartItems[existingItemIndex];
+        state.totalQuantity -= item.quantity;
+        state.subTotal -= item.price * item.quantity;
+
+        state.cartItems.splice(existingItemIndex, 1);
+
+        state.total = state.subTotal;
+      }
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart } = shoppingCartSlice.actions;
+export const { addToCart, removeFromCart } = shoppingCartSlice.actions;
 
 export default shoppingCartSlice.reducer;

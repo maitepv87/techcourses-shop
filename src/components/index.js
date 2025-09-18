@@ -2,8 +2,6 @@ export * from "./Cart";
 export * from "./CartItem";
 export * from "./CourseCard";
 export * from "./CourseList";
-export * from "./ErrorMessage";
 export * from "./FeedbackBanner";
 export * from "./Footer";
-export * from "./LoadingSpinner";
 export * from "./NavBar";

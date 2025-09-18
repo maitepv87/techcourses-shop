@@ -1,19 +1,13 @@
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/slices/shoppingCartSlice";
 
-export const CourseCard = ({
-  id,
-  title,
-  provider,
-  description,
-  level,
-  price,
-  benefits = [],
-}) => {
+export const CourseCard = (course) => {
   const dispatch = useDispatch();
 
+  const { title, provider, description, level, price, benefits = [] } = course;
+
   const handleAddCourse = () => {
-    dispatch(addToCart(id));
+    dispatch(addToCart(course));
   };
 
   return (

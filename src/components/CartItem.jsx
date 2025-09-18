@@ -1,12 +1,12 @@
 import { useDispatch } from "react-redux";
-// import { removeFromCart } from "../store/slices/shoppingCartSlice";
+import { removeFromCart } from "../store/slices/shoppingCartSlice";
 
 export const CartItem = ({ id, title, price, quantity }) => {
   const dispatch = useDispatch();
 
-  // const handleRemove = () => {
-  //   dispatch(removeFromCart(id));
-  // };
+  const handleRemove = () => {
+    dispatch(removeFromCart(id));
+  };
 
   return (
     <div className="cart-item" aria-label={`Cart item: ${title}`}>
