@@ -4,9 +4,23 @@ import {
   decreaseQuantity,
   increaseQuantity,
 } from "../store/slices/shoppingCartSlice";
+import { showNotification } from "../store/slices/notificationSlice";
 
 export const CartItem = ({ id, title, level, price, quantity }) => {
   const dispatch = useDispatch();
+
+  const handleRemoveFromCart = () => {
+    // 1. Remove from cart
+    dispatch(removeFromCart(id));
+
+    // 2. Show notification
+    dispatch(
+      showNotification({
+        message: "Successfully removed from the cart",
+        type: "success",
+      })
+    );
+  };
 
   return (
     <div className="cart-card">
@@ -38,7 +52,7 @@ export const CartItem = ({ id, title, level, price, quantity }) => {
           +
         </button>
 
-        <button type="button" onClick={() => dispatch(removeFromCart(id))}>
+        <button type="button" onClick={handleRemoveFromCart}>
           Remove
         </button>
       </div>

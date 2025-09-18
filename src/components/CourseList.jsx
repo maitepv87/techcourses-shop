@@ -14,7 +14,7 @@ export const CourseList = () => {
       {courses.length === 0 ? (
         <p>No courses available at the moment.</p>
       ) : (
-        courses.map((course) => <CourseCard key={course.id} {...course} />)
+        courses.map((course) => <CourseCard key={course.id} course={course} />)
       )}
     </section>
   );

@@ -62,11 +62,21 @@ export const shoppingCartSlice = createSlice({
         state.subTotal -= item.price;
       }
     },
+    clearCart: (state) => {
+      state.cartItems = [];
+      state.totalQuantity = 0;
+      state.subTotal = 0;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } =
-  shoppingCartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
+  clearCart,
+} = shoppingCartSlice.actions;
 
 export default shoppingCartSlice.reducer;

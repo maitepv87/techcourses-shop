@@ -13,7 +13,7 @@ export const Home = () => {
   return (
     <main>
       <section>
-        <h2>Invest in Ypur Technical Future</h2>
+        <h2>Invest in Your Technical Future</h2>
         <CourseList />
       </section>
     </main>

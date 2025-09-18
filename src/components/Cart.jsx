@@ -1,12 +1,29 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { showNotification } from "../store/slices/notificationSlice";
+import { clearCart } from "../store/slices/shoppingCartSlice";
 import { CartItem } from "./CartItem";
 
-export const Cart = () => {
+export const Cart = ({ onCheckout }) => {
   const { cartItems, subTotal, totalQuantity } = useSelector(
     (state) => state.shoppingCart
   );
+  const dispatch = useDispatch();
 
-  console.log("cartItems", cartItems);
+  const handleCheckout = () => {
+    // 1. Show notification
+    dispatch(
+      showNotification({
+        message: "Your order successfully placed",
+        type: "success",
+      })
+    );
+
+    // 2. Empty cart
+    dispatch(clearCart());
+
+    // 3. Close modal
+    onCheckout();
+  };
 
   return (
     <aside className="cart-panel">
@@ -21,7 +38,7 @@ export const Cart = () => {
           <p className="cart-subtotal">
             <strong>Subtotal:</strong> ${subTotal.toFixed(2)}
           </p>
-          <button className="checkout-btn" onClick={() => alert("Checkout")}>
+          <button className="checkout-btn" onClick={handleCheckout}>
             Checkout
           </button>
         </>
