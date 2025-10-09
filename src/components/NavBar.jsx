@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { Cart } from "./Cart";
+import { Cart } from "../features/cart/Cart";
 
 export const NavBar = () => {
   const { totalQuantity } = useSelector((state) => state.shoppingCart);

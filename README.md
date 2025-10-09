@@ -60,7 +60,7 @@ To practice:
 
 ## **Design Notes**
 
-This project is built to be **teachable and maintainable**.  
+This project is built to be **teachable and maintainable**.
 Each slice has a single, clear responsibility:
 
 - **`courseCatalogSlice`**: Manages the course list, loading state, and errors.
@@ -87,21 +87,21 @@ The notification system is decoupled from the cart UI, making it reusable across
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/maitepv87/techcourses-shop.git
-   cd techcourses-shop
-   ```
+```bash
+  git clone https://github.com/maitepv87/techcourses-shop.git
+  cd techcourses-shop
+```
 
 2. Install dependencies:
 
-   ```bash
-   npm install
-   ```
+```bash
+  npm install
+```
 
 3. Start the development server:
 
-   ```bash
-    npm run dev
-   ```
+```bash
+  npm run dev
+```
 
 Then open http://localhost:3000 in your browser.

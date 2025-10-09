@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { hideNotification } from "../store/slices/notificationSlice";
+import { hideNotification } from "../../store/slices/notificationSlice";
 
 export const Notification = () => {
   const { message, type, visible } = useSelector((state) => state.notification);

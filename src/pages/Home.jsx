@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCourses } from "../store/thunks/coursesThunks";
-import { CourseList } from "../components";
+import { CourseList } from "../features";
 
 export const Home = () => {
   const dispatch = useDispatch();

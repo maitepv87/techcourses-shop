@@ -3,8 +3,8 @@ import {
   removeFromCart,
   decreaseQuantity,
   increaseQuantity,
-} from "../store/slices/shoppingCartSlice";
-import { showNotification } from "../store/slices/notificationSlice";
+} from "../../store/slices/shoppingCartSlice";
+import { showNotification } from "../../store/slices/notificationSlice";
 
 export const CartItem = ({ id, title, level, price, quantity }) => {
   const dispatch = useDispatch();

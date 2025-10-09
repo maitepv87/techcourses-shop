@@ -1,5 +1,6 @@
 import "./App.css";
-import { NavBar, Footer, Notification } from "./components";
+import { NavBar, Footer } from "./components";
+import { Notification } from "./features";
 import { Home } from "./pages";
 
 function App() {

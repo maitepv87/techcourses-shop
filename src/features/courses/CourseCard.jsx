@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { addToCart } from "../store/slices/shoppingCartSlice";
-import { showNotification } from "../store/slices/notificationSlice";
+import { addToCart } from "../../store/slices/shoppingCartSlice";
+import { showNotification } from "../../store/slices/notificationSlice";
 
 export const CourseCard = ({ course }) => {
   const dispatch = useDispatch();

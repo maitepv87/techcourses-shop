@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
-import { showNotification } from "../store/slices/notificationSlice";
-import { clearCart } from "../store/slices/shoppingCartSlice";
-import { CartItem } from "./CartItem";
+import { showNotification } from "../../store/slices/notificationSlice";
+import { clearCart } from "../../store/slices/shoppingCartSlice";
+import { CartItem } from "../../features/cart/CartItem";
 
 export const Cart = ({ onCheckout }) => {
   const { cartItems, subTotal, totalQuantity } = useSelector(
