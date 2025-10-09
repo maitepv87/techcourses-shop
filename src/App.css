@@ -50,6 +50,21 @@ nav div {
 }
 
 /* ===== Cursos (Home) ===== */
+
+.home-hero {
+  background-color: #f9f9f9;
+  color: #222;
+  padding: 2rem 0;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #111;
+  margin-bottom: 1.5rem;
+}
+
 section[aria-label="Available Courses"] {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -214,6 +229,18 @@ section[aria-label="Available Courses"] {
   font-size: 0.9rem;
   gap: 0.25rem;
   margin: 0.5rem 0;
+  color: #222;
+}
+
+.description {
+  color: #333;
+}
+
+.benefit {
+  color: #222;
+}
+
+.course-card {
   color: #222;
 }
 

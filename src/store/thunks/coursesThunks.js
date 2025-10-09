@@ -1,5 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllCourses, getCourseById } from "../../api/coursesAPI";
+import {
+  getAllCourses,
+  getCourseById,
+} from "../../features/courses/coursesAPI";
 
 // Fetches all available courses from local JSON
 export const fetchCourses = createAsyncThunk(

@@ -12,8 +12,8 @@ export const Home = () => {
 
   return (
     <main>
-      <section>
-        <h2>Invest in Your Technical Future</h2>
+      <section className="home-hero">
+        <h2 className="hero-title">Invest in Your Technical Future</h2>
         <CourseList />
       </section>
     </main>
